@@ -1,3 +1,0 @@
-variant,total,mean_bleu,std_bleu,mean_rouge_l,std_rouge_l,mean_similarity,std_similarity,retrieval_hit_rate,groundedness_rate,refusal_accuracy,p50_latency_ms,p95_latency_ms,mean_cost_idr
-A,35,0.3386,0.1835,0.4108,0.2028,0.5682,0.2262,100.0,100.0,100.0,527.0,1507.0,3.5514
-B,35,0.2998,0.1741,0.3733,0.211,0.5093,0.2521,100.0,100.0,100.0,508.0,1413.0,4.0258
