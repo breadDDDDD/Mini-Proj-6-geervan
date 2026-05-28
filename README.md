@@ -20,7 +20,7 @@ pip install -r requirements.txt
 copy .env.example .env
 python scripts\generate_sample_pdfs.py
 python -m src.ingest
-uvicorn src.main:app --reload
+uvicorn src.main:app --reload --port 8010
 ```
 
 ## Chatbot UI dengan Streamlit
@@ -34,7 +34,7 @@ powershell -ExecutionPolicy Bypass -File scripts\run_api.ps1
 Atau langsung:
 
 ```bash
-uvicorn src.main:app --reload
+uvicorn src.main:app --reload --port 8010
 ```
 
 Jalankan UI di terminal kedua:
@@ -52,7 +52,7 @@ http://localhost:8501
 UI akan memanggil FastAPI di:
 
 ```text
-http://127.0.0.1:8000
+http://127.0.0.1:8010
 ```
 
 Jika port API berbeda, ubah field `FastAPI URL` di sidebar Streamlit.
@@ -82,7 +82,7 @@ python scripts\smoke_test.py
 Test interaktif:
 
 ```bash
-uvicorn src.main:app --reload
+uvicorn src.main:app --reload --port 8010
 python -m streamlit run ui/streamlit_app.py
 ```
 

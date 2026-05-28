@@ -5,7 +5,7 @@ import urllib.request
 import streamlit as st
 
 
-DEFAULT_API_URL = "http://127.0.0.1:8000"
+DEFAULT_API_URL = "http://127.0.0.1:8010"
 SAMPLE_QUESTIONS = [
     "Berapa interval servis Xpander?",
     "What is covered by warranty?",
