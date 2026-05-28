@@ -1,0 +1,57 @@
+[
+  {
+    "sku": "MO-001",
+    "part_number": "1230A045",
+    "name_id": "Filter oli mesin",
+    "name_en": "Engine oil filter",
+    "applicable_models": ["Xpander", "Pajero Sport", "Triton"],
+    "indicative_price_idr": 85000,
+    "notes": "Harga indikatif, dapat berbeda antar dealer."
+  },
+  {
+    "sku": "MO-002",
+    "part_number": "MR984204",
+    "name_id": "Filter udara",
+    "name_en": "Air filter",
+    "applicable_models": ["Xpander", "Outlander"],
+    "indicative_price_idr": 145000,
+    "notes": "Diganti sesuai kondisi pemakaian dan jadwal inspeksi."
+  },
+  {
+    "sku": "MO-003",
+    "part_number": "4605A472",
+    "name_id": "Kampas rem depan",
+    "name_en": "Front brake pad",
+    "applicable_models": ["Xpander"],
+    "indicative_price_idr": 620000,
+    "notes": "Harga belum termasuk jasa pemasangan."
+  },
+  {
+    "sku": "MO-004",
+    "part_number": "MN980125",
+    "name_id": "Busi",
+    "name_en": "Spark plug",
+    "applicable_models": ["Xpander", "Outlander"],
+    "indicative_price_idr": 78000,
+    "notes": "Umumnya diganti per set sesuai rekomendasi servis."
+  },
+  {
+    "sku": "MO-005",
+    "part_number": "7803A109",
+    "name_id": "Filter kabin AC",
+    "name_en": "Cabin AC filter",
+    "applicable_models": ["Xpander", "Pajero Sport"],
+    "indicative_price_idr": 165000,
+    "notes": "Dapat lebih cepat diganti jika kendaraan sering melewati area berdebu."
+  },
+  {
+    "sku": "MO-006",
+    "part_number": "CVT-FLUID-4L",
+    "name_id": "Oli transmisi CVT 4L",
+    "name_en": "CVT transmission fluid 4L",
+    "applicable_models": ["Xpander"],
+    "indicative_price_idr": 540000,
+    "notes": "Gunakan spesifikasi yang direkomendasikan di manual servis."
+  }
+]
+
