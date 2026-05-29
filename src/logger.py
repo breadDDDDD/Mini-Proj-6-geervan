@@ -1,4 +1,6 @@
 import hashlib
+import json
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
@@ -11,8 +13,20 @@ def query_hash(query: str) -> str:
 
 
 def write_log(event: dict[str, Any], path: Path | None = None) -> None:
-    # TODO(STAGE 2): Append one JSON object per request to logs/app.jsonl.
-    # Include timestamp, request_id, status, latency_ms, token estimates, sources, and refusal_reason.
-    _ = event
-    _ = path or settings.app_log_path
+    log_path = path or settings.app_log_path
+    log_path.parent.mkdir(parents=True, exist_ok=True)
 
+    payload = {
+        "timestamp": datetime.now(timezone.utc).isoformat(),
+        "request_id": event.get("request_id"),
+        "status": event.get("status"),
+        "latency_ms": event.get("latency_ms", 0),
+        "input_tokens_est": event.get("input_tokens_est", 0),
+        "output_tokens_est": event.get("output_tokens_est", 0),
+        "sources": event.get("sources", []),
+        "refusal_reason": event.get("refusal_reason"),
+        **event,
+    }
+
+    with log_path.open("a", encoding="utf-8") as handle:
+        handle.write(json.dumps(payload, ensure_ascii=False) + "\n")

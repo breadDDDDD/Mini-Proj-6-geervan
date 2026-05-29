@@ -57,3 +57,12 @@ Acceptance:
 - Cost/query is compared against IDR 250 target.
 - Scaling plan to 100k queries/day is explained.
 - Streamlit UI is used in the 5-minute demo.
+
+## Stage 1 Status
+
+Done in current code:
+
+- Safety policy rejects toxic, injection, and off-topic queries.
+- Retriever loads local documents (`pdf/csv/json/txt/md`), builds chunks, and ranks with lexical cosine similarity.
+- Generator produces grounded baseline answer from retrieved evidence and includes source hints.
+- FastAPI `/chat` returns source objects and status fields expected by UI/smoke test.

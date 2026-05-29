@@ -36,7 +36,6 @@ def chat(request: ChatRequest) -> ChatResponse:
 
     if not safety["allowed"]:
         latency_ms = int((time.perf_counter() - started) * 1000)
-        # TODO(STAGE 2): Log refused requests.
         write_log(
             {
                 "request_id": request_id,
@@ -69,7 +68,6 @@ def chat(request: ChatRequest) -> ChatResponse:
         for chunk in chunks
     ]
 
-    # TODO(STAGE 2): Complete structured logging fields.
     write_log(
         {
             "request_id": request_id,
@@ -83,6 +81,7 @@ def chat(request: ChatRequest) -> ChatResponse:
             "retrieved_chunks": len(chunks),
             "sources": [source.filename for source in sources],
             "refusal": False,
+            "refusal_reason": None,
             "estimated_cost_idr": estimate_cost_idr(input_tokens, output_tokens),
         }
     )
@@ -94,4 +93,3 @@ def chat(request: ChatRequest) -> ChatResponse:
         latency_ms=latency_ms,
         status="ok",
     )
-

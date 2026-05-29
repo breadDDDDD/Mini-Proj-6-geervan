@@ -7,28 +7,48 @@ REFUSAL_MESSAGE = (
 )
 
 
-# TODO(STAGE 1): Add toxic, prompt-injection, and off-topic rules.
-TOXIC_PATTERNS = []
-PROMPT_INJECTION_PATTERNS = []
-IN_SCOPE_KEYWORDS = []
+TOXIC_PATTERNS = [
+    r"\b(bodoh|goblok|tolol|bangsat|anjing|kontol|memek)\b",
+    r"\b(stupid|idiot|moron|bastard|fuck(?:ing)?)\b",
+]
+PROMPT_INJECTION_PATTERNS = [
+    r"ignore\s+(all\s+)?(previous|prior|system)\s+instructions",
+    r"(reveal|show|print)\s+(the\s+)?(system\s+prompt|hidden\s+prompt)",
+    r"jailbreak",
+    r"developer\s+mode",
+    r"abaikan\s+(semua\s+)?instruksi",
+]
+IN_SCOPE_KEYWORDS = [
+    "garansi",
+    "warranty",
+    "servis",
+    "service",
+    "booking",
+    "jadwal",
+    "suku cadang",
+    "spare part",
+    "part",
+    "harga",
+    "filter",
+    "oli",
+    "klaim",
+    "after-sales",
+    "purna jual",
+]
 
 
 def check_safety(query: str) -> dict:
     text = query.lower()
 
-    # TODO(STAGE 1): Return {"allowed": False, "reason": "toxic_language"} for toxic inputs.
     for pattern in TOXIC_PATTERNS:
         if re.search(pattern, text):
             return {"allowed": False, "reason": "toxic_language"}
 
-    # TODO(STAGE 1): Return {"allowed": False, "reason": "prompt_injection"} for injection attempts.
     for pattern in PROMPT_INJECTION_PATTERNS:
         if re.search(pattern, text):
             return {"allowed": False, "reason": "prompt_injection"}
 
-    # TODO(STAGE 1): Return off_topic if the query is outside after-sales topics.
     if IN_SCOPE_KEYWORDS and not any(keyword in text for keyword in IN_SCOPE_KEYWORDS):
         return {"allowed": False, "reason": "off_topic"}
 
     return {"allowed": True, "reason": None}
-
