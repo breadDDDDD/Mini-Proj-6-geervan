@@ -1,4 +1,4 @@
-# Mini Project 6 Starter - LLM Monitoring Dashboard Azure-Free
+# Mini Project 6 Starter - LLM Monitoring Dashboard
 
 Starter ini dibuat agar student **tidak mulai dari nol**, tetapi tetap mengerjakan bagian penting dari mini project:
 
